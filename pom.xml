@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2019-2019 Gryphon Zone
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>zone.gryphon</groupId>
+        <artifactId>base-pom</artifactId>
+        <version>0.10.51-4e3244f</version>
+    </parent>
+
+    <groupId>zone.gryphon.do</groupId>
+    <artifactId>digitalocean-java</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>${project.artifactId} parent POM</name>
+    <description>Unofficial Java implementation of the Digital Ocean API</description>
+    <url>https://github.com/gryphon-zone/digitalocean-java</url>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>galen</id>
+            <name>Galen</name>
+            <email>tyrol@gryphon.zone</email>
+            <organizationUrl>https://github.com/gryphon-zone/</organizationUrl>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>-6</timezone>
+        </developer>
+    </developers>
+
+    <modules>
+        <module>bom</module>
+        <module>build-bom</module>
+        <module>model-manual</module>
+    </modules>
+
+    <scm>
+        <connection>scm:git:git@github.com:gryphon-zone/digitalocean-java.git</connection>
+        <developerConnection>scm:git:git@github.com:gryphon-zone/digitalocean-java.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/gryphon-zone/digitalocean-java/tree/master</url>
+    </scm>
+
+    <properties>
+        <pedantic.testOnlyDeps>org.junit:junit,org.assertj:assertj-core,org.mockito:mockito-all,ch.qos.logback:logback-classic,ch.qos.logback:logback-core</pedantic.testOnlyDeps>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>analyze-dependencies</id>
+                        <configuration>
+                            <ignoredUnusedDeclaredDependencies>
+                                <dependency>ch.qos.logback:logback-classic:jar:*</dependency>
+                                <dependency>ch.qos.logback:logback-core:jar:*</dependency>
+                                <dependency>org.projectlombok:lombok:jar:*</dependency>
+                                <dependency>org.openjdk.jmh:jmh-generator-annprocess:jar:*</dependency>
+                                <dependency>org.glassfish.jaxb:jaxb-runtime:jar:*</dependency>
+                            </ignoredUnusedDeclaredDependencies>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
