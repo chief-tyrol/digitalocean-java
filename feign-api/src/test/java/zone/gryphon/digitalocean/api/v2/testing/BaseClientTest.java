@@ -94,6 +94,4 @@ public abstract class BaseClientTest<T> {
 
         assertThat(client).isNotNull();
     }
-
-
 }
