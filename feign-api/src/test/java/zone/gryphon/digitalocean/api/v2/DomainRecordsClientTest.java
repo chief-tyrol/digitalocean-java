@@ -13,20 +13,19 @@
  * limitations under the License.
  */
 
-package zone.gryphon.digitalocean.api.v2.model.pagination;
-
-import lombok.AllArgsConstructor;
-import lombok.Value;
-import lombok.experimental.NonFinal;
+package zone.gryphon.digitalocean.api.v2;
 
 
-@Value
-@NonFinal
-@AllArgsConstructor
-public class PaginatedResult {
+import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
+import zone.gryphon.digitalocean.api.v2.testing.BaseClientTest;
 
-    protected final MetaObject meta;
+@Slf4j
+public class DomainRecordsClientTest extends BaseClientTest<DomainRecordsClient> {
 
-    protected final Links links;
+    @Test
+    public void test() {
+
+    }
 
 }
