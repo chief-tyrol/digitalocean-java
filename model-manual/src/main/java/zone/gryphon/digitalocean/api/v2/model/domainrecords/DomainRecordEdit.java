@@ -13,20 +13,42 @@
  * limitations under the License.
  */
 
-package zone.gryphon.digitalocean.api.v2.model.pagination;
+package zone.gryphon.digitalocean.api.v2.model.domainrecords;
 
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Value;
-import lombok.experimental.NonFinal;
 
+import javax.validation.constraints.NotNull;
 
 @Value
-@NonFinal
-@AllArgsConstructor
-public class PaginatedResult {
+@Builder(toBuilder = true)
+public class DomainRecordEdit {
 
-    protected final MetaObject meta;
+    @NotNull
+    private final String type;
 
-    protected final Links links;
+    @NotNull
+    private final String name;
+
+    @NotNull
+    private final String data;
+
+    /* nullable */
+    private final Integer priority;
+
+    /* nullable */
+    private final Integer port;
+
+    @NotNull
+    private final Integer ttl;
+
+    /* nullable */
+    private final Integer weight;
+
+    /* nullable */
+    private final Integer flags;
+
+    /* nullable */
+    private final String tag;
 
 }

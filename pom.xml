@@ -27,7 +27,7 @@
     <version>0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>${project.artifactId} parent POM</name>
+    <name>${project.artifactId} (parent POM)</name>
     <description>Unofficial Java implementation of the Digital Ocean API</description>
     <url>https://github.com/gryphon-zone/digitalocean-java</url>
 
@@ -54,6 +54,7 @@
     <modules>
         <module>bom</module>
         <module>build-bom</module>
+        <module>feign-api</module>
         <module>model-manual</module>
     </modules>
 

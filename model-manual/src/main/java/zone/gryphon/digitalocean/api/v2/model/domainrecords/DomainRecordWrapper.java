@@ -13,20 +13,19 @@
  * limitations under the License.
  */
 
-package zone.gryphon.digitalocean.api.v2.model.pagination;
+package zone.gryphon.digitalocean.api.v2.model.domainrecords;
 
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 import lombok.Value;
-import lombok.experimental.NonFinal;
 
+import javax.validation.constraints.NotNull;
 
 @Value
-@NonFinal
-@AllArgsConstructor
-public class PaginatedResult {
+@Builder(toBuilder = true)
+public class DomainRecordWrapper {
 
-    protected final MetaObject meta;
-
-    protected final Links links;
+    @JsonProperty("domain_record")
+    private final DomainRecord domainRecord;
 
 }

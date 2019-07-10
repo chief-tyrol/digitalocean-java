@@ -24,6 +24,7 @@ import zone.gryphon.digitalocean.api.v2.model.pagination.Links;
 import zone.gryphon.digitalocean.api.v2.model.pagination.MetaObject;
 import zone.gryphon.digitalocean.api.v2.model.pagination.PaginatedResult;
 
+import java.beans.ConstructorProperties;
 import java.util.List;
 
 @Value
@@ -35,6 +36,7 @@ public class DomainRecords extends PaginatedResult {
     private final List<DomainRecord> domainRecords;
 
     @Builder(toBuilder = true)
+    @ConstructorProperties({"meta", "links", "domainRecords"})
     public DomainRecords(MetaObject meta, Links links, List<DomainRecord> domainRecords) {
         super(meta, links);
         this.domainRecords = domainRecords;

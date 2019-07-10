@@ -13,20 +13,22 @@
  * limitations under the License.
  */
 
-package zone.gryphon.digitalocean.api.v2.model.pagination;
+package zone.gryphon.digitalocean.api.v2;
 
-import lombok.AllArgsConstructor;
-import lombok.Value;
-import lombok.experimental.NonFinal;
+import feign.RequestInterceptor;
+import feign.RequestTemplate;
+import lombok.NonNull;
 
+public class DigitalOceanAuthorizer implements RequestInterceptor {
 
-@Value
-@NonFinal
-@AllArgsConstructor
-public class PaginatedResult {
+    private final String header;
 
-    protected final MetaObject meta;
+    public DigitalOceanAuthorizer(@NonNull String token) {
+        this.header = String.format("Bearer %s", token);
+    }
 
-    protected final Links links;
-
+    @Override
+    public void apply(RequestTemplate requestTemplate) {
+        requestTemplate.header("Authorization", header);
+    }
 }
